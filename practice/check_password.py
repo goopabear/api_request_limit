@@ -5,10 +5,11 @@ from functools import wraps
 
 # Class Example:
 
-# Decorator function 
+# Wrapper function 
 def authenticate(func):
     @wraps(func)
     def wrapper(self, *args, **kwargs):
+        print(self.message2) # Inherits from the class that contains decorator!
         if self.password == '1234':
             print("Password correct!")
             return func(self, *args, **kwargs)
@@ -21,13 +22,14 @@ def authenticate(func):
 class BaseApp:
     def __init__(self, password):
         self.password = password
-        self.message = 'Welcome to the system!'
+        self.message1 = 'Welcome to the system!'
+        self.message2 = 'Wrapper inherits this too!'
 
 
-    @authenticate # Passes to the decorator function
+    @authenticate # Passes to the wrapper function
     def pay(self):
         print("Login successful!")
-        print(self.message) # Inheritance still behaves the same
+        print(self.message1) # Inheritance still behaves the same
         return True
 
 
