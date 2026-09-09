@@ -1,4 +1,4 @@
-# api_request_limit
+# api_throttler
 
 
 ## Description
@@ -14,7 +14,7 @@ Uses only Python stdlib. Version is noted in toml.
 ## Usage
 
 limit.py <--- contains the limiter code
-main.py <--- shows one implementation, modeled after my current API setup.
+class.py <--- shows one implementation, modeled after my current API setup.
 
 \practice <--- contains example(s) of using my code for my own practice.
 

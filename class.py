@@ -23,6 +23,7 @@ class MainClass:
     replenish_rate = None
 
     def __init__(self):
+        self.name = 'App Version: 0.1'
         if self.bucket and self.replenish_rate:
             self.time = datetime.now()
             self.limit = RateLimit(bucket=self.bucket, rate=self.replenish_rate)
@@ -40,7 +41,7 @@ class SubClass(MainClass):
 
 
 if __name__ == "__main__":
-    app = MainClass()
+    app = SubClass()
     while True:
         input("Press Enter to make a request...")
         app.request()
